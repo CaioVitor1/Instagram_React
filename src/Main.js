@@ -5,7 +5,7 @@ export default function Main() {
     return (
     <div className="corpo">
         <Left />
-        
+        <Sidebar />
     </div>
     )
 }

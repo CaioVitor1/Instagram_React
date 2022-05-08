@@ -1,26 +1,30 @@
 const everyPost = [
+    {image:"imagens/meowed.svg" , title: "meowed", imagepost: "imagens/gato-telefone.svg",
+    likeimage: "imagens/respondeai.svg",liketitle:"respondeai" ,id:1}, 
+    {image:"imagens/barked.svg" , title: "barked", imagepost: "imagens/adorable_animals.svg",
+    likeimage: "imagens/adorable_animals.svg",liketitle:"adorable_animals", id:2}
     
 ]
 
 function Post(props) {
-    
-            <div class="post">
-                <div class="topo">
-                    <div class="usuario">
-                        <img src="imagens/meowed.svg" />
-                        meowed
+    return ( 
+            <div className="post">
+                <div className="topo">
+                    <div className="usuario">
+                        <img src={props.image} />
+                        {props.title}
                     </div>
-                    <div class="acoes">
+                    <div className="acoes">
                         <ion-icon name="ellipsis-horizontal"></ion-icon>
                     </div>
                 </div>
 
-                <div class="conteudo">
-                    <img src="imagens/gato-telefone.svg" />
+                <div className="conteudo">
+                    <img src={props.imagepost} />
                 </div>
 
-                <div class="fundo">
-                    <div class="acoes">
+                <div className="fundo">
+                    <div className="acoes">
                         <div>
                             <ion-icon name="heart-outline"></ion-icon>
                             <ion-icon name="chatbubble-outline"></ion-icon>
@@ -31,91 +35,20 @@ function Post(props) {
                         </div>
                     </div>
 
-                    <div class="curtidas">
-                        <img src="imagens/respondeai.svg" />
-                        <div class="texto">
-                            Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong>
+                    <div className="curtidas">
+                        <img src={props.likeimage} />
+                        <div className="texto">
+                            Curtido por <strong>{props.liketitle}</strong> e <strong>outras 101.523 pessoas</strong>
                         </div>
                     </div>
                 </div>
             </div>
+    )
 }
-
-
 export default function Posts() {
     return (
         <div class="posts">
-            <div class="post">
-                <div class="topo">
-                    <div class="usuario">
-                        <img src="imagens/meowed.svg" />
-                        meowed
-                    </div>
-                    <div class="acoes">
-                        <ion-icon name="ellipsis-horizontal"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="conteudo">
-                    <img src="imagens/gato-telefone.svg" />
-                </div>
-
-                <div class="fundo">
-                    <div class="acoes">
-                        <div>
-                            <ion-icon name="heart-outline"></ion-icon>
-                            <ion-icon name="chatbubble-outline"></ion-icon>
-                            <ion-icon name="paper-plane-outline"></ion-icon>
-                        </div>
-                        <div>
-                            <ion-icon name="bookmark-outline"></ion-icon>
-                        </div>
-                    </div>
-
-                    <div class="curtidas">
-                        <img src="imagens/respondeai.svg" />
-                        <div class="texto">
-                            Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="post">
-                <div class="topo">
-                    <div class="usuario">
-                    <   img src="imagens/barked.svg" />
-                        barked
-                    </div>
-                    <div class="acoes">
-                        <ion-icon name="ellipsis-horizontal"></ion-icon>
-                    </div>
-                 </div>
-
-                <div class="conteudo">
-                    <img src="imagens/dog.svg" />
-                </div>
-
-                <div class="fundo">
-                    <div class="acoes">
-                    <div>
-                        <ion-icon name="heart-outline"></ion-icon>
-                        <ion-icon name="chatbubble-outline"></ion-icon>
-                        <ion-icon name="paper-plane-outline"></ion-icon>
-                    </div>
-                    <div>
-                        <ion-icon name="bookmark-outline"></ion-icon>
-                    </div>
-                    </div>
-
-                    <div class="curtidas">
-                    <img src="imagens/adorable_animals.svg" />
-                    <div class="texto">
-                        Curtido por <strong>adorable_animals</strong> e <strong>outras 99.159 pessoas</strong>
-                    </div>
-                    </div>
-                </div>
-            </div>
+            {everyPost.map((url) => (<Post image={url.image} title={url.title} imagepost={url.imagepost} likeimage={url.likeimage} liketitle={url.liketitle}/>))}
         </div>
     )
 }
