@@ -184,7 +184,15 @@ body {
 .post .conteudo img {
   width: 100%;
 }
-
+.red{
+  color:red;
+}
+.borda {
+  border: solid;
+}
+.teste{
+  display: flex;
+}
 .post .fundo .acoes {
   display: flex;
   justify-content: space-between;

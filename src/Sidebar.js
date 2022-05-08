@@ -5,7 +5,17 @@ const everysuggestion = [
     {image:"imagens/adorable_animals.svg", title: "adorableanimals"},
     {image:"imagens/smallcutecats.svg", title: "smallcutecats"}
 ]
-
+function User(props) {
+    return (
+        <div class="usuario">
+                <img src={props.image} />
+                <div class="texto">
+                    <strong>{props.user}</strong>
+                    {props.title}
+                </div>
+            </div>
+    )
+}
 function Suggestion(props) {
     return ( 
     <div class="sugestao">
@@ -16,7 +26,6 @@ function Suggestion(props) {
                 <div class="razao">Segue você</div>
             </div>
         </div>
-
         <div class="seguir">Seguir</div>
     </div>
     )
@@ -25,13 +34,7 @@ function Suggestion(props) {
 export default function Sidebar() {
     return (
         <div class="sidebar">
-            <div class="usuario">
-                <img src="imagens/catanacomics.svg" />
-                <div class="texto">
-                    <strong>catanacomics</strong>
-                    Catana
-                </div>
-            </div>
+             <User image="imagens/catanacomics.svg" user="Catana" title="Catanacomics" />
 
             <div class="sugestoes">
                 <div class="titulo">

@@ -1,12 +1,40 @@
+import React from 'react';
+
 const everyPost = [
     {image:"imagens/meowed.svg" , title: "meowed", imagepost: "imagens/gato-telefone.svg",
     likeimage: "imagens/respondeai.svg",liketitle:"respondeai" ,id:1}, 
     {image:"imagens/barked.svg" , title: "barked", imagepost: "imagens/adorable_animals.svg",
-    likeimage: "imagens/adorable_animals.svg",liketitle:"adorable_animals", id:2}
-    
+    likeimage: "imagens/adorable_animals.svg",liketitle:"adorable_animals", id:2}   
 ]
 
+function Icon() {
+    console.log("Voltou pra cá")
+    const [newIcone, setnewIcone] = React.useState("heart-outline");
+    const [classIcon, setclassIcon] = React.useState("nothing");
+    function changeIcon() {
+        if(newIcone === "heart-outline"){ 
+        setnewIcone("heart");
+        setclassIcon("nothing red");
+        } else {
+            setnewIcone("heart-outline");
+            setclassIcon("nothing")
+        }
+    }
+    
+    return(
+        <div className='teste'>
+          <div className={classIcon}><ion-icon onClick={changeIcon} name={newIcone}></ion-icon></div> 
+            <ion-icon name="chatbubble-outline"></ion-icon>
+            <ion-icon name="paper-plane-outline"></ion-icon>
+         </div>
+    )
+}
+function iconImage() {  
+   console.log("capturei")
+   console.log("chegou aqui");
+}
 function Post(props) {
+    
     return ( 
             <div className="post">
                 <div className="topo">
@@ -20,16 +48,14 @@ function Post(props) {
                 </div>
 
                 <div className="conteudo">
-                    <img src={props.imagepost} />
+                    <img className='borda' onClick={iconImage} src={props.imagepost} />
                 </div>
 
                 <div className="fundo">
                     <div className="acoes">
-                        <div>
-                            <ion-icon name="heart-outline"></ion-icon>
-                            <ion-icon name="chatbubble-outline"></ion-icon>
-                            <ion-icon name="paper-plane-outline"></ion-icon>
-                        </div>
+
+                       <Icon />
+
                         <div>
                             <ion-icon name="bookmark-outline"></ion-icon>
                         </div>
