@@ -6,8 +6,7 @@ const everyPost = [
     {image:"imagens/barked.svg" , title: "barked", imagepost: "imagens/adorable_animals.svg",
     likeimage: "imagens/adorable_animals.svg",liketitle:"adorable_animals", id:2}   
 ]
-
-function Icon() {
+function Post(props) {
     const [newIcone, setnewIcone] = React.useState("heart-outline");
     const [classIcon, setclassIcon] = React.useState("nothing");
     function changeIcon() {
@@ -19,17 +18,6 @@ function Icon() {
             setclassIcon("nothing")
         }
     }
-    return(
-        <div className='teste'>
-          <div className={classIcon}><ion-icon onClick={changeIcon} name={newIcone}></ion-icon></div> 
-            <ion-icon name="chatbubble-outline"></ion-icon>
-            <ion-icon name="paper-plane-outline"></ion-icon>
-        </div>
-    )
-}
-
-function Post(props) {
-
     return ( 
             <div className="post">
                 <div className="topo">
@@ -43,13 +31,17 @@ function Post(props) {
                 </div>
 
                 <div className="conteudo">
-                    <img className='borda' src={props.imagepost} />
+                    <img className='borda' onClick={changeIcon} src={props.imagepost} />
                 </div>
 
                 <div className="fundo">
                     <div className="acoes">
 
-                       <Icon />
+                        <div className='teste'>
+                            <div className={classIcon}><ion-icon onClick={changeIcon} name={newIcone}></ion-icon></div> 
+                            <ion-icon name="chatbubble-outline"></ion-icon>
+                            <ion-icon name="paper-plane-outline"></ion-icon>
+                        </div>
 
                         <div>
                             <ion-icon name="bookmark-outline"></ion-icon>
