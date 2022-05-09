@@ -8,7 +8,6 @@ const everyPost = [
 ]
 
 function Icon() {
-    console.log("Voltou pra cá")
     const [newIcone, setnewIcone] = React.useState("heart-outline");
     const [classIcon, setclassIcon] = React.useState("nothing");
     function changeIcon() {
@@ -20,21 +19,17 @@ function Icon() {
             setclassIcon("nothing")
         }
     }
-    
     return(
         <div className='teste'>
           <div className={classIcon}><ion-icon onClick={changeIcon} name={newIcone}></ion-icon></div> 
             <ion-icon name="chatbubble-outline"></ion-icon>
             <ion-icon name="paper-plane-outline"></ion-icon>
-         </div>
+        </div>
     )
 }
-function iconImage() {  
-   console.log("capturei")
-   console.log("chegou aqui");
-}
+
 function Post(props) {
-    
+
     return ( 
             <div className="post">
                 <div className="topo">
@@ -48,7 +43,7 @@ function Post(props) {
                 </div>
 
                 <div className="conteudo">
-                    <img className='borda' onClick={iconImage} src={props.imagepost} />
+                    <img className='borda' src={props.imagepost} />
                 </div>
 
                 <div className="fundo">
